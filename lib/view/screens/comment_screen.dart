@@ -4,20 +4,19 @@ import 'package:ticktok/consts/consts_shelf.dart';
 import 'package:ticktok/controllers/comment_controller.dart';
 import 'package:timeago/timeago.dart' as tago;
 
-class CommentScreen extends StatelessWidget {
+class CommentScreen extends GetView<CommentController> {
   final String id;
   CommentScreen({
     Key? key,
     required this.id,
   }) : super(key: key);
 
-  final TextEditingController _commentController = TextEditingController();
-  CommentController commentController = Get.put(CommentController());
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    commentController.updatePostId(id);
+    controller.updatePostId(id);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -29,9 +28,9 @@ class CommentScreen extends StatelessWidget {
               Expanded(
                 child: Obx(() {
                   return ListView.builder(
-                      itemCount: commentController.comments.length,
+                      itemCount: controller.comments.length,
                       itemBuilder: (context, index) {
-                        final comment = commentController.comments[index];
+                        final comment = controller.comments[index];
                         return ListTile(
                           leading: CircleAvatar(
                             backgroundColor: Colors.black,
@@ -81,8 +80,7 @@ class CommentScreen extends StatelessWidget {
                             ],
                           ),
                           trailing: InkWell(
-                            onTap: () =>
-                                commentController.likeComment(comment.id),
+                            onTap: () => controller.likeComment(comment.id),
                             child: Icon(
                               Icons.favorite,
                               size: 25,
@@ -99,7 +97,7 @@ class CommentScreen extends StatelessWidget {
               const Divider(),
               ListTile(
                 title: TextFormField(
-                  controller: _commentController,
+                  controller: _controller,
                   style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white,
@@ -124,8 +122,7 @@ class CommentScreen extends StatelessWidget {
                   ),
                 ),
                 trailing: TextButton(
-                  onPressed: () =>
-                      commentController.postComment(_commentController.text),
+                  onPressed: () => controller.postComment(_controller.text),
                   child: const Text(
                     'Send',
                     style: TextStyle(

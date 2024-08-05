@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ticktok/controllers/search_controller.dart';
 import 'package:ticktok/models/user.dart';
 import 'package:ticktok/view/screens/screens_shelf.dart';
 import 'package:get/get.dart';
+import 'package:ticktok/controllers/search_controller.dart' as search;
 
-class SearchScreen extends StatelessWidget {
-  SearchScreen({Key? key}) : super(key: key);
-
-  final SearchController searchController = Get.put(SearchController());
+class SearchScreen extends GetView<search.SearchController> {
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +22,10 @@ class SearchScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            onFieldSubmitted: (value) => searchController.searchUser(value),
+            onFieldSubmitted: (value) => controller.searchUser(value),
           ),
         ),
-        body: searchController.searchedUsers.isEmpty
+        body: controller.searchedUsers.isEmpty
             ? const Center(
                 child: Text(
                   'Search for users!',
@@ -39,9 +37,9 @@ class SearchScreen extends StatelessWidget {
                 ),
               )
             : ListView.builder(
-                itemCount: searchController.searchedUsers.length,
+                itemCount: controller.searchedUsers.length,
                 itemBuilder: (context, index) {
-                  User user = searchController.searchedUsers[index];
+                  User user = controller.searchedUsers[index];
                   return InkWell(
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(

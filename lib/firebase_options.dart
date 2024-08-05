@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBJkG4h7QPNGczmMpf3YdUsoZiz9bRMhi0',
-    appId: '1:581727821753:android:d2b059d33839fc66ae6068',
-    messagingSenderId: '581727821753',
-    projectId: 'ticktock-1',
-    storageBucket: 'ticktock-1.appspot.com',
+    apiKey: 'AIzaSyA5hUbVglYesKLTug3PM-1fp7GhIyRBp58',
+    appId: '1:657203047416:android:9fcd2f63c64b7aca82440d',
+    messagingSenderId: '657203047416',
+    projectId: 'ticktock-54bb7',
+    storageBucket: 'ticktock-54bb7.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyASeOIqx9CD6i1uHn76CnmlocGx5mZJtS0',
-    appId: '1:581727821753:ios:f3c6970223d4b890ae6068',
-    messagingSenderId: '581727821753',
-    projectId: 'ticktock-1',
-    storageBucket: 'ticktock-1.appspot.com',
-    iosClientId: '581727821753-c9t8mpodno1l0a96vvf682dq3aem3dkd.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBsMQaHGm8mwmKJOS2FIiz0WUYaxocYbKs',
+    appId: '1:657203047416:ios:54fded576c02871082440d',
+    messagingSenderId: '657203047416',
+    projectId: 'ticktock-54bb7',
+    storageBucket: 'ticktock-54bb7.appspot.com',
     iosBundleId: 'com.example.ticktok',
   );
+
 }

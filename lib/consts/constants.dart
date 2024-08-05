@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -7,10 +6,9 @@ import 'package:ticktok/view/screens/screens_shelf.dart';
 
 import '../controllers/auth_controller.dart';
 
-
 List pages = [
   VideoScreen(),
-  SearchScreen(),
+  const SearchScreen(),
   const AddVideoScreen(),
   const Text('Messages Screen'),
   ProfileScreen(uid: authController.user!.uid),

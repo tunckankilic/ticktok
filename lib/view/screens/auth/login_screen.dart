@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ticktok/consts/consts_shelf.dart';
+import 'package:ticktok/controllers/auth_controller.dart';
 import 'package:ticktok/view/screens/auth/auth_shelf.dart';
 import 'package:ticktok/view/screens/widgets/text_input_field.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetView<AuthController> {
   LoginScreen({Key? key}) : super(key: key);
 
   final TextEditingController _emailController = TextEditingController();
@@ -70,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               child: InkWell(
-                onTap: () => authController.loginUser(
+                onTap: () => controller.loginUser(
                   _emailController.text,
                   _passwordController.text,
                 ),
